@@ -9,7 +9,7 @@ const getLocationByPosition = ({ latitude, longitude }, callback) => {
     .get(
       `http://api.positionstack.com/v1/reverse?access_key=${API_KEY}&query=${latitude},${longitude}`
     )
-    .then((res) => callback(res.data))
+    .then((response) => callback(response.data))
     .catch((err) => console.log(err));
 };
 
@@ -23,8 +23,8 @@ const getPositionByLocation = (name, callback) => {
     .then((response) => {
       callback(response.data);
     })
-    .catch((error) => {
-      console.log(error);
+    .catch((err) => {
+      console.log(err);
     });
 };
 
