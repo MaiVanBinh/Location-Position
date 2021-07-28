@@ -27,17 +27,21 @@ const getPositionByLocation = (name, callback) => {
       console.log(err);
     });
 };
-
-if (isGetLocation) {
-  getLocationByPosition(position, (result) => {
-    // result is list location order by confidence -> get highest confidence
-    // print highest confidence item
-    console.log(result.data[0]);
-  });
-} else {
-  getPositionByLocation("Thu Duc District, Ho Chi Minh City", (result) => {
-    // result is list location order by confidence -> get highest confidence
-    // print highest confidence item
-    console.log(result.data[0]);
-  });
+try {
+    if (isGetLocation) {
+        getLocationByPosition(position, (result) => {
+          // result is list location order by confidence -> get highest confidence
+          // print highest confidence item
+          console.log(result.data[0]);
+        });
+      } else {
+        getPositionByLocation("Thu Duc District, Ho Chi Minh City", (result) => {
+          // result is list location order by confidence -> get highest confidence
+          // print highest confidence item
+          console.log(result.data[0]);
+        });
+      }
+      
+} catch(err) {
+    
 }
